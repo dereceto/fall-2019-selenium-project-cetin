@@ -23,6 +23,8 @@ public class VerifyURLOfPracticeWeb {
             System.out.println("Excepted Cybertek Practice "+exceptURL);
             System.out.println("Actual Cybertek Practice: "+actualURL);
         }
+
+        driver.get("");
         driver.close();
     }
 }
