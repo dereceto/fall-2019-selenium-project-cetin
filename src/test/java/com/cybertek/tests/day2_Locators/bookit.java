@@ -32,11 +32,15 @@ public class bookit {
             2. Verify that URL contains “cybertek-reservation”
 
          */
-        if (driver.getCurrentUrl().contains("cybertek-reservation")){
+        String exceptedPartialURL="cybertek-reservation";
+        String actualURL=driver.getCurrentUrl();
+        if (actualURL.contains(exceptedPartialURL)){
             System.out.println("PASS");
         }else{
             System.out.println("FAIL");
+            System.out.println("Excepted Partial URL: "+exceptedPartialURL);
+            System.out.println("Actual URL: "+actualURL);
         }
-        driver.quit();
+        driver.close();
     }
 }
