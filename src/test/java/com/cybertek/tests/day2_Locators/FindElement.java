@@ -19,10 +19,16 @@ public class FindElement {
         //write email to the text box
         /*
         1. Find the text box first --> findElement() from WebDriver
-
          */
+        // 1. way
         WebElement emailBox =driver.findElement(By.id("okta-signin-username"));
         emailBox.sendKeys("cetinderedc@gmail.com");
+
+        // write your password to the password box
+        // 2. way
+        driver.findElement(By.id("okta-signin-password")).sendKeys("RojhaT76");
+
+
 
     }
 }
