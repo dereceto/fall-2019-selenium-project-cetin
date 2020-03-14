@@ -5,6 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class PracticeFactory {
     public static void main(String[] args) {
-        WebDriver driver = WebDriverFactory.getDriver("firefox");
+            //go to google
+
+            //   WebDriverManager.chromedriver().setup();
+            //    WebDriver driver = new ChromeDriver();
+
+
+            WebDriver driver = WebDriverFactory.getDriver("Chrome");
+            driver.get("https://google.com");
+
     }
 }

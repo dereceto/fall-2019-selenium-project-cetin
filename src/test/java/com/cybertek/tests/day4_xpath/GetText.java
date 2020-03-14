@@ -6,19 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ClickVsSubmit {
-    public static void main(String[] args) {
-        /*
-        Click() va Submit()
-        task:
-        1. go to forgot password web page
-        http://practice.cybertekschool.com/forgot_password
-       2.  enter any email
-       3. click "retrieve password" bttb
-        4. verify the URL is:
-        http://practice.cybertekschool.com/email_sent
-         */
+import java.util.jar.JarOutputStream;
 
+
+public class GetText {
+    public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -26,8 +18,13 @@ public class ClickVsSubmit {
         driver.get("http://practice.cybertekschool.com/forgot_password");
         driver.manage().window().maximize();
 
-        // enter any email
-        //locate the email box first
+        /*
+        Task
+        go to the forgot password page
+        enter any email
+        click retrieve password bttn
+        verify that the confirmation text "Your e-mail's been sent!"
+         */
         WebElement emailbox = driver.findElement(By.name("email"));
         //enter email --< sendKeys()
         emailbox.sendKeys("abc@gamil.com");
@@ -38,21 +35,19 @@ public class ClickVsSubmit {
         //submit email by clicking the "retrive password"
         submitBttn.submit();
 
-        //    Verify  --> Expected result  vs Actual result
+        // verify that the confirmation text "Your e-mail's been sent!"
+        String expectedText = "Your e-mail's been sent!";
 
-        String expectedURL = "http://practice.cybertekschool.com/email_sent";
-        String actualURL = driver.getCurrentUrl();
+        WebElement message = driver.findElement(By.name("confirmation_message"));
 
-        if(expectedURL.equals(actualURL)){
-            System.out.println("test is pass");
+        //getText() -->
+        String ActualText = message.getText(); //
+
+        if (expectedText.equals(ActualText)){
+            System.out.println("pass");
         }else {
-            System.out.println("test is failed");
+            System.out.println("fail");
         }
 
-
-
-
-
-        driver.close();
     }
 }

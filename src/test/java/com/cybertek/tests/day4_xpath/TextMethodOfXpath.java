@@ -7,21 +7,28 @@ import org.openqa.selenium.WebElement;
 
 public class TextMethodOfXpath {
     public static void main(String[] args) {
-        /*
+         /*
         go to http://practice.cybertekschool.com/context_menu
-        verify Context Menu is on the page
+        verify  Context Menu  is on the page
+        //tagName[text()='exact Text']
          */
-        // tagname[text()='exact text']
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
-        WebElement emailBox = driver.findElement(By.xpath("h3[text()='Context Menu']"));
 
-        // Verify --> except vs actual
+        WebDriver driver = WebDriverFactory.getDriver("Chrome");
+
+        //locate the element Context Menu
+
+        WebElement text = driver.findElement(By.xpath("//h3[text()='Context Menu']"));
+
+        //Verify --> expect vs actual
+
         String expectedText = "Context Menu";
-        String actualText= emailBox.getText();
-        if (expectedText.equalsIgnoreCase(actualText)){
-            System.out.println("PASS");
-        }else{
-            System.out.println("FAIL");
+
+        String actualText = text.getText();
+
+        if(expectedText.equals(actualText)){
+            System.out.println("pass");
+        }else {
+            System.out.println("fail");
         }
     }
 }
