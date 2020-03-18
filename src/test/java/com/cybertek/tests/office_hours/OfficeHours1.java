@@ -1,4 +1,4 @@
-package com.cybertek.tests.office_hours1;
+package com.cybertek.tests.office_hours;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import java.util.Arrays;
 import java.util.List;
 
-public class GoogleSearchTest {
+public class OfficeHours1 {
      /*
     Open browser
 2. Go to https://google.com
