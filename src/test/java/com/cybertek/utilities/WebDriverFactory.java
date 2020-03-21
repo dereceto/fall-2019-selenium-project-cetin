@@ -32,6 +32,8 @@ public class WebDriverFactory {
             case "opera":
                 WebDriverManager.operadriver().setup();
                 driver = new OperaDriver();
+
+
         }
         return driver;
     }
