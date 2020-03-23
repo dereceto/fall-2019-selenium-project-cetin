@@ -5,14 +5,15 @@ import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import javax.swing.*;
+import java.util.*;
 
 public class SelectClassPracticeTests {
 
@@ -56,6 +57,15 @@ public class SelectClassPracticeTests {
 
     }
 
+
+    /*
+     go to http://samples.gwtproject.org/samples/Showcase/Showcase.html#!CwCellTable
+    select option Coworkers
+    verify that that Coworkers is now selected
+    select options Contacts
+    verify that contacts is selected
+     */
+
     @Test
     public void test2() throws InterruptedException {
         driver.get("http://samples.gwtproject.org/samples/Showcase/Showcase.html#!CwCellTable");
@@ -79,8 +89,58 @@ public class SelectClassPracticeTests {
         Assert.assertEquals(actual1, "Contacts");
     }
 
+    /*
+     * go to http://practice.cybertekschool.com/dropdown
+     * verify that days table has days sorted in ascending order
+     */
     @Test
     public void test3(){
+        driver.get("http://practice.cybertekschool.com/dropdown");
+        Select days = new Select(driver.findElement(By.id("day")));
+        List<WebElement> options = days.getOptions();
+        System.out.println("Number of options: " + options.size());
+
+        // i have  a list of web elements, i need to verify if the values (numbers) are sorted in ascending order
+        // list of web element to list of string
+        List<String> stringList = BrowserUtils.getElementsText(options);
+
+        // list of string to list of ints
+        List<Integer> ints = new ArrayList<>();
+        for (String string : stringList) {
+            ints.add(Integer.parseInt(string));
+        }
+
+        System.out.println(ints);
+
+        // verify list of ints is sorted
+
+        // create new class with values of the given list
+        List<Integer> intsCopy = new ArrayList<>(ints);
+        // sorting the copy
+        Collections.sort(intsCopy);
+        // finally compare
+        Assert.assertEquals(ints, intsCopy);
+
+    }
+    /*
+        Go to google.com
+        Move your mouse on top of I am feeling lucky
+        Verify that button now has a different text
+        Move the mouse away
+        Do this many times
+        When you get “I am feeling stellar” 3 times, print “Deal with it” in console and exit the program
+     */
+    @Test
+    public  void test4(){
+        driver.get("https://www.google.com/");
+        Actions actions = new Actions(driver);
+        WebElement iAmFeelBtt = driver.findElement(By.id("gbqfbb"));
+
+        actions.pause(1000).moveToElement(iAmFeelBtt).pause(1000).build().perform();
+        String notUnExpected = "I'm Feeling Lucky";
+        String actual = iAmFeelBtt.getAttribute("value");
+        Assert.assertNotEquals(notUnExpected,actual);
+
 
     }
 
