@@ -66,5 +66,5 @@ public class TabsAndWindowsExample {
     // write a utility that takes a String url,
     // changes to tab with given url,
     // if such title is not found, go back to original window
-    }
+
 }
