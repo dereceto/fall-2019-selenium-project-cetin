@@ -122,29 +122,5 @@ public class SelectClassPracticeTests {
         Assert.assertEquals(ints, intsCopy);
 
     }
-    /*
-        Go to google.com
-        Move your mouse on top of I am feeling lucky
-        Verify that button now has a different text
-        Move the mouse away
-        Do this many times
-        When you get “I am feeling stellar” 3 times, print “Deal with it” in console and exit the program
-     */
-    @Test
-    public  void test4(){
-        driver.get("https://www.google.com/");
-        Actions actions = new Actions(driver);
-        WebElement iAmFeelBtt = driver.findElement(By.id("gbqfbb"));
-
-        actions.pause(1000).moveToElement(iAmFeelBtt).pause(1000).build().perform();
-        String notUnExpected = "I'm Feeling Lucky";
-        String actual = iAmFeelBtt.getAttribute("value");
-        Assert.assertNotEquals(notUnExpected,actual);
-
-
-    }
-
-
-
 
 }

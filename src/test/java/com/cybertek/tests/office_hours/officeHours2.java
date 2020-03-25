@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
 public class officeHours2 {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = WebDriverFactory.getDriver("chrome");
+        driver.manage().window().maximize();
         driver.get("http://qa3.vytrack.com");
         WebElement username = driver.findElement(By.id("prependedInput"));
         username.sendKeys("salesmanager110");
@@ -43,7 +45,7 @@ public class officeHours2 {
         contact1.put("Phone", "571-236-4545");
         contact1.put("Street", "400 Main Street");
         contact1.put("City", "Tysons");
-        contact1.put("State", "VA");
+        contact1.put("State", "Virginia");
         contact1.put("Zip Code", "22102");
         contact1.put("Sales Group", "true");
         contact1.put("Country", "United States");
@@ -53,7 +55,7 @@ public class officeHours2 {
         WebElement phone = driver.findElement(By.name("oro_contact_form[phones][0][phone]"));
         WebElement street = driver.findElement(By.name("oro_contact_form[addresses][0][street]"));
         WebElement city = driver.findElement(By.name("oro_contact_form[addresses][0][city]"));
-        WebElement state = driver.findElement(By.xpath("//input[@data-name = 'field__region-text']"));
+        WebElement state = driver.findElement(By.xpath("//select[@data-name = 'field__region']"));
         WebElement zipCode = driver.findElement(By.name("oro_contact_form[addresses][0][postalCode]"));
         WebElement salesGroup = driver.findElement(By.xpath("(//input[@data-name = 'field__1'])[2]"));
         first_name.sendKeys(contact1.get("First Name"));
@@ -61,7 +63,7 @@ public class officeHours2 {
         phone.sendKeys(contact1.get("Phone"));
         street.sendKeys(contact1.get("Street"));
         city.sendKeys(contact1.get("City"));
-        state.sendKeys(contact1.get("State"));
+//        state.sendKeys(contact1.get("State"));
         zipCode.sendKeys(contact1.get("Zip Code"));
         /*
             To handle dropdowns in selenium we are using Select class
@@ -75,8 +77,17 @@ public class officeHours2 {
         it has different methods that help us interact with dropdown
          */
         country_dropdwn.selectByVisibleText(contact1.get("Country"));
+        Select state_list = new Select(state);
+        state_list.selectByVisibleText(contact1.get("State"));
         if (contact1.get("Sales Group").equalsIgnoreCase("true")){
             salesGroup.click();
         }
+        driver.findElement(By.xpath("(//button[contains(text(), 'Save and Close')])[1]")).click();
+        Thread.sleep(3000);
+        String fullName = contact1.get("First Name") + " " + contact1.get("Last Name");
+        String uiFullName = driver.findElement(By.xpath("//h1[@class='user-name']")).getText();
+        Assert.assertEquals(uiFullName, fullName);
+
+
     }
 }
