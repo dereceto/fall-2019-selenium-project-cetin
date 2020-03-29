@@ -29,7 +29,12 @@ public class PropertiesExamples {
         // i need the browser/url from properties file
 
         String pBrowser = ConfigurationReader.getProperty("browser");
-        System.out.println("pBrowser = " + pBrowser);
+        System.out.println("pBrowser =" + pBrowser);
+
+        String pUrl = ConfigurationReader.getProperty("url");
+
+        System.out.println("pUrl = " + pUrl);
+
 
     }
 
@@ -41,5 +46,14 @@ public class PropertiesExamples {
         String url = ConfigurationReader.getProperty("url");
         driver.get(url);
         driver.close();
+        String str = Singleton.getInstance().toUpperCase();
+        System.out.println(str);
     }
+
+    @Test
+    public void test3(){
+        String str = Singleton.getInstance();
+        System.out.println(str);
+    }
+
 }
