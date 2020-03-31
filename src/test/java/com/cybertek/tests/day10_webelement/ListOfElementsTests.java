@@ -85,6 +85,9 @@ public class ListOfElementsTests {
         List<WebElement> allResults = driver.findElements(By.cssSelector("span.a-size-base-plus"));
 
         System.out.println("Number of results: "+ allResults.size());
+        System.out.println("First Item Result Name: "+ allResults.get(0).getText());
+        System.out.println("Second Item Result Name: "+ allResults.get(1).getText());
+        System.out.println("Last Item Result Name: "+ allResults.get(allResults.size()-1).getText());
 
     }
 

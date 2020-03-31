@@ -42,9 +42,13 @@ public class CheckboxesTest {
         one.click();
         System.out.println("is one selected: "+ one.isSelected());
         System.out.println("is two selected: "+ two.isSelected());
-
+        two.click();
         Assert.assertTrue(one.isSelected());
         Assert.assertTrue(two.isSelected());
+
+
+
+
 
 
 

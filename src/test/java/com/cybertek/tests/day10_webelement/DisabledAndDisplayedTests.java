@@ -40,6 +40,7 @@ public class DisabledAndDisplayedTests {
         System.out.println("Is black enabled: "+black.isEnabled());
         Assert.assertFalse(green.isEnabled());
         Assert.assertTrue(black.isEnabled());
+        Thread.sleep(3000);
 
     }
 
