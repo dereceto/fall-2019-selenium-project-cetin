@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.Test;
 
 public class Driver {
 
@@ -65,5 +66,12 @@ public class Driver {
         }
         return driver;
 
+    }
+
+    public static void closeDriver(){
+        // close to browser
+        driver.quit();
+        // then make the object null
+        driver = null;
     }
 }
