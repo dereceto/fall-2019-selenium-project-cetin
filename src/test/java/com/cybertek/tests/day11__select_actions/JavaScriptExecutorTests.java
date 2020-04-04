@@ -37,7 +37,7 @@ public class JavaScriptExecutorTests {
     }
 
     @Test
-    public void sendKeysWithJS(){
+    public void sendKeysWithJS() throws InterruptedException {
 
         driver.get("http://practice.cybertekschool.com/dynamic_controls");
 
@@ -46,6 +46,8 @@ public class JavaScriptExecutorTests {
         String text = "hi world";
 
         jse.executeScript("arguments[0].setAttribute('value', '" + text +"')", input);
+
+        Thread.sleep(5000);
 
         // arguments[0].setAttribute('value', 'HELLO WORLD')
 

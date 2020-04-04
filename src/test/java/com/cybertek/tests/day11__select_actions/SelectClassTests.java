@@ -1,4 +1,4 @@
-package com.cybertek.tests.day11_select_actions;
+package com.cybertek.tests.day11__select_actions;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;

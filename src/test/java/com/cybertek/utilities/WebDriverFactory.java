@@ -32,8 +32,10 @@ public class WebDriverFactory {
             case "opera":
                 WebDriverManager.operadriver().setup();
                 driver = new OperaDriver();
-
-
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver=new FirefoxDriver();
         }
         return driver;
     }
