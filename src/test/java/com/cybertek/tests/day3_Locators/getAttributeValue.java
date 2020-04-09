@@ -1,6 +1,5 @@
 package com.cybertek.tests.day3_Locators;
 
-import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

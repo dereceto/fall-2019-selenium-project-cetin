@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.jar.JarOutputStream;
-
 
 public class GetText {
     public static void main(String[] args) {

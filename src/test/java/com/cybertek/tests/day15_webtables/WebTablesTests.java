@@ -1,7 +1,7 @@
 package com.cybertek.tests.day15_webtables;
 
 import com.cybertek.base.TestBase;
-import com.cybertek.utilities.BrowserUtils;
+import com.cybertek.utilities.BrowserUtilsOld;
 import com.cybertek.utilities.ConfigurationReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -37,8 +37,8 @@ public class WebTablesTests extends TestBase {
         // get all headers in a list
         List<WebElement> headers = driver.findElements(By.xpath("//table[@id='table1']//th"));
         System.out.println(headers.size());
-        // use BrowserUtils to get the list of headers as text and print
-        System.out.println(BrowserUtils.getElementsText(headers));
+        // use BrowserUtilsOld to get the list of headers as text and print
+        System.out.println(BrowserUtilsOld.getElementsText(headers));
 
     }
 

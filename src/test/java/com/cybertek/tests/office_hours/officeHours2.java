@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class officeHours2 {
     public static void main(String[] args) throws InterruptedException {

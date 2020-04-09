@@ -1,19 +1,20 @@
 package com.cybertek.tests.office_hours2;
 
-import com.cybertek.utilities.BrowserUtils;
+import com.cybertek.utilities.BrowserUtilsOld;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import javax.swing.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class SelectClassPracticeTests {
 
@@ -51,7 +52,7 @@ public class SelectClassPracticeTests {
         List<String> expectedOptions = Arrays.asList("Family", "Friends", "Coworkers", "Businesses", "Contacts");
 
         // given a list web elements, extract the text of the elements into new list of strings
-        List<String> allOptionsStr = BrowserUtils.getElementsText(allOptionsEl);
+        List<String> allOptionsStr = BrowserUtilsOld.getElementsText(allOptionsEl);
 
         Assert.assertEquals(allOptionsStr, expectedOptions);
 
@@ -102,7 +103,7 @@ public class SelectClassPracticeTests {
 
         // i have  a list of web elements, i need to verify if the values (numbers) are sorted in ascending order
         // list of web element to list of string
-        List<String> stringList = BrowserUtils.getElementsText(options);
+        List<String> stringList = BrowserUtilsOld.getElementsText(options);
 
         // list of string to list of ints
         List<Integer> ints = new ArrayList<>();

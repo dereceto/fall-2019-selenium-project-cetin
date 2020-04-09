@@ -1,10 +1,8 @@
 package com.cybertek.tests.office_hours3;
 
 import com.cybertek.base.TestBase;
-import com.cybertek.utilities.BrowserUtils;
+import com.cybertek.utilities.BrowserUtilsOld;
 import com.cybertek.utilities.Driver;
-import com.cybertek.utilities.WebDriverFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,8 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -63,7 +59,7 @@ public class EtsyTests extends TestBase {
         // VERIFY THAT Ship to countries include Australia
 
         // get all options is a list of strings
-        List<String> options = BrowserUtils.getElementsText(shipToList.getOptions());
+        List<String> options = BrowserUtilsOld.getElementsText(shipToList.getOptions());
 
         for (String option : options) {
 //            option.trim().equals("Austalia")
